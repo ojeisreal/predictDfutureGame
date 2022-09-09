@@ -127,8 +127,8 @@ function afterfourthselection() {
                 tilevalues[i].style.textShadow = '2px 2px 100px #5eff00, -2px -2px 100px #5eff00, -2px 2px 100px #5eff00, 2px -2px 100px #5eff00';
             }
         }
-        for (i=0; i<9; i++){
-            if (!selectedtilesindex.includes(i)){
+        for (i = 0; i < 9; i++) {
+            if (!selectedtilesindex.includes(i)) {
                 tile[i].onclick = '';
                 tile[i].style.cursor = 'default';
                 tilevalues[i].style.textShadow = '2px 2px 80px #0048ff, -2px -2px 80px #0048ff, -2px 2px 80px #0048ff, 2px -2px 80px #0048ff';
@@ -139,8 +139,8 @@ function afterfourthselection() {
         for (i = 0; i < 4; i++) {
             tilevalues[selectedtilesindex[i]].style.textShadow = '2px 2px 100px #ff5757, -2px -2px 100px #ff5757, -2px 2px 100px #ff5757, 2px -2px 100px #ff5757';
         }
-        for (i=0; i<9; i++){
-            if (!selectedtilesindex.includes(i)){
+        for (i = 0; i < 9; i++) {
+            if (!selectedtilesindex.includes(i)) {
                 tile[i].onclick = '';
                 tile[i].style.cursor = 'default';
                 tilevalues[i].style.textShadow = '2px 2px 80px #0048ff, -2px -2px 80px #0048ff, -2px 2px 80px #0048ff, 2px -2px 80px #0048ff';
@@ -152,12 +152,22 @@ function afterfourthselection() {
 
 //function for successful prediction
 function successpredict() {
+    document.getElementById('headertext').innerHTML = 'Congratulations!, you predicted the future';
+    document.getElementById('headertext').style.textShadow = '2px 2px 100px #5eff00, -2px -2px 100px #5eff00, -2px 2px 100px #5eff00, 2px -2px 100px #5eff00';
+    localStorage.success = Number(localStorage.success) + 1;
+    localStorage.attempts = Number(localStorage.attempts) + 1;
+    document.getElementById('predictionattempts').innerHTML = localStorage.attempts;
+    document.getElementById('predictionsuccess').innerHTML = localStorage.success;
     document.getElementById('completedoverlay').style.display = 'block';
     // alert('YOU PREDICTED THE FUTURE')
 }
 
 //function for failed prediction
 function failedpredict() {
+    document.getElementById('headertext').innerHTML = 'You failed to predict the future';
+    document.getElementById('headertext').style.textShadow = '2px 2px 100px #ff5757, -2px -2px 100px #ff5757, -2px 2px 100px #ff5757, 2px -2px 100px #ff5757';
+    localStorage.attempts = Number(localStorage.attempts) + 1;
+    document.getElementById('predictionattempts').innerHTML = localStorage.attempts;
     document.getElementById('completedoverlay').style.display = 'block';
     // alert('YOU FAILED TO PREDICT THE FUTURE')
 }
@@ -199,23 +209,17 @@ function tileselect(n) {
             num3 = selectedtiles[2];
             //color all selected tiles green if they are same number
             if (num1 == num2 && num1 == num3) {
-                for (i=0; i<3; i++){
+                for (i = 0; i < 3; i++) {
                     tilevalues[selectedtilesindex[i]].style.textShadow = '2px 2px 100px #5eff00, -2px -2px 100px #5eff00, -2px 2px 100px #5eff00, 2px -2px 100px #5eff00';
                 }
                 //deactivate onclick functions on other unselected tiles
-                for (i=0; i<9; i++){
-                    if (!selectedtilesindex.includes(i)){
+                for (i = 0; i < 9; i++) {
+                    if (!selectedtilesindex.includes(i)) {
                         tile[i].onclick = '';
                         tile[i].style.cursor = 'default';
                         tilevalues[i].style.textShadow = '2px 2px 80px #0048ff, -2px -2px 80px #0048ff, -2px 2px 80px #0048ff, 2px -2px 80px #0048ff';
                     }
                 }
-                document.getElementById('headertext').innerHTML = 'Congratulations!, you predicted the future';
-                document.getElementById('headertext').style.textShadow = '2px 2px 100px #5eff00, -2px -2px 100px #5eff00, -2px 2px 100px #5eff00, 2px -2px 100px #5eff00';
-                localStorage.success = Number(localStorage.success) + 1;
-                localStorage.attempts = Number(localStorage.attempts) + 1;
-                document.getElementById('predictionattempts').innerHTML = localStorage.attempts;
-                document.getElementById('predictionsuccess').innerHTML = localStorage.success;
                 setTimeout(successpredict, 100);
             }
         }
@@ -224,24 +228,20 @@ function tileselect(n) {
         tilevalues[n].innerHTML = randomnumbers[n];
         selectedtiles.push(randomnumbers[n])
         selectedtilesindex.push(n);
-        document.getElementById('headertext').innerHTML = 'You failed to predict the future';
-        document.getElementById('headertext').style.textShadow = '2px 2px 100px #ff5757, -2px -2px 100px #ff5757, -2px 2px 100px #ff5757, 2px -2px 100px #ff5757';
-        localStorage.attempts = Number(localStorage.attempts) + 1;
-        document.getElementById('predictionattempts').innerHTML = localStorage.attempts;
         setTimeout(afterfourthselection, 100);
     }
 }
 
 //clear all data saved in local storage
-function initiateclearprogress(){
+function initiateclearprogress() {
     document.getElementById('clearprogressoverlay').style.display = 'block';
 }
 
-function dontclearprogress(){
+function dontclearprogress() {
     document.getElementById('clearprogressoverlay').style.display = 'none';
 }
 
-function clearprogress(){
+function clearprogress() {
     localStorage.clear();
     location.replace('index.html');
 }
@@ -252,7 +252,7 @@ document.getElementById('predictionattempts').innerHTML = localStorage.attempts;
 document.getElementById('predictionsuccess').innerHTML = localStorage.success;
 
 //to play again
-function predictagain(){
+function predictagain() {
     location.reload();
 }
 
@@ -261,7 +261,7 @@ let enlargedgameinfocssstyle = { //create object variable containing CSS attribu
 };
 let gameinfocard = document.getElementById('gameinfocard');
 
-function gameinfo(){
+function gameinfo() {
     Object.assign(gameinfocard.style, enlargedgameinfocssstyle); //update selected CSS attribute
     document.getElementById('hidegameinfocard').style.display = 'block';
 }
@@ -270,7 +270,7 @@ let defaultgameinfocssstyle = {
     transform: 'scale(0,0)'
 };
 
-function hidegameinfocard(){
+function hidegameinfocard() {
     Object.assign(gameinfocard.style, defaultgameinfocssstyle);
     document.getElementById('hidegameinfocard').style.display = 'none';
 }
