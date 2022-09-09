@@ -23,7 +23,7 @@ while (knpositions.length < 3) {
     }
 }
 // console.log('array index position of key value')
-// console.log(knpositions);
+console.log(knpositions);
 
 //generate random numbers and store in array
 let randomnumbers = []; //array thats stores value
@@ -98,7 +98,7 @@ function showtilevalues() {
 
 // let indexofselectedtiles = {}; //object to store selected tile values and array index as key value pair
 // let indexofselectedtiles = new Map(); //map variable to store tile values and array index as key value pair
-function afterfourthselection() {
+function afterfinalselection() {
     console.log('selected numbers -> ' + selectedtiles)
     console.log('selected numbers index -> ' + selectedtilesindex)
 
@@ -136,7 +136,7 @@ function afterfourthselection() {
         }
         setTimeout(successpredict, 100);
     } else {
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < 5; i++) {
             tilevalues[selectedtilesindex[i]].style.textShadow = '2px 2px 100px #ff5757, -2px -2px 100px #ff5757, -2px 2px 100px #ff5757, 2px -2px 100px #ff5757';
         }
         for (i = 0; i < 9; i++) {
@@ -177,7 +177,7 @@ selectedtiles3occured = []
 function selected3occurences(n) {
     let i = 0;
     selectoccurence = 0;
-    while (i < 4) {
+    while (i < selectedtiles.length) {
         if (n == selectedtiles[i]) {
             selectoccurence++;
         }
@@ -199,7 +199,7 @@ function tileselect(n) {
     tile[n].style.cursor = 'default'; //disbale css pointer effect
     //disable hover effect by seeting color to default tile color
     tilevalues[n].style.textShadow = '2px 2px 80px #0048ff, -2px -2px 80px #0048ff, -2px 2px 80px #0048ff, 2px -2px 80px #0048ff';
-    if (index < 4) {
+    if (index < 5) { //maximum nuber of selections set to five
         tilevalues[n].innerHTML = randomnumbers[n];
         selectedtiles.push(randomnumbers[n])
         selectedtilesindex.push(n);
@@ -223,12 +223,34 @@ function tileselect(n) {
                 setTimeout(successpredict, 100);
             }
         }
+
+        if (selectedtiles.length == 4) {
+            selectedtiles.forEach(selected3occurences);
+            if (selectedtiles3occured.length == 3) {
+                //get the selected tiles with 3 same occured value and color same color
+                for (i = 0; i < 9; i++) {
+                    var d = Number(tilevalues[i].innerHTML); //covert tile numbers which are in string to number type to match threeoccurencesvalues type
+                    if (selectedtiles3occured.includes(d)) {
+                        tilevalues[i].style.textShadow = '2px 2px 100px #5eff00, -2px -2px 100px #5eff00, -2px 2px 100px #5eff00, 2px -2px 100px #5eff00';
+                    }
+                }
+                for (i = 0; i < 9; i++) {
+                    if (!selectedtilesindex.includes(i)) {
+                        tile[i].onclick = '';
+                        tile[i].style.cursor = 'default';
+                        tilevalues[i].style.textShadow = '2px 2px 80px #0048ff, -2px -2px 80px #0048ff, -2px 2px 80px #0048ff, 2px -2px 80px #0048ff';
+                    }
+                }
+                setTimeout(successpredict, 100);
+            }
+        }
+
         index++;
     } else {
         tilevalues[n].innerHTML = randomnumbers[n];
         selectedtiles.push(randomnumbers[n])
         selectedtilesindex.push(n);
-        setTimeout(afterfourthselection, 100);
+        setTimeout(afterfinalselection, 100);
     }
 }
 
