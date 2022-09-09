@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tabletscreen.css">
+    <link rel="stylesheet" href="mobilescreen.css">
+    <script defer src="script.js"></script>
+    <title>predictDfuture</title>
+</head>
+
+<body>
+    <div id="clearprogressoverlay">
+        <div class="completedcontainer" id="submitnamecontainer" >
+            <div class="entername">
+                <h3>Are you sure you want to delete game date?</h3>
+                <p class="clearprogresswarning">Please Note: Player name, attempts and successful predictions data will be deleted</p>
+            </div>
+
+            <div class="clearprogressoptions">
+                <div class="options" id="wipegamedata" onclick="clearprogress()">
+                    <h3>Yes</h3>
+                </div>
+
+                <div class="options" onclick="dontclearprogress()">
+                    <h3>No</h3>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="gameinfocard" id="gameinfocard">
+        <div class="startcardtext">
+            <h4>Prediction Game Challenge</h4><br><br>
+            <h5><span class="logotext">predictDfuture ver1.0 - Test your genie skills&#128515</span></h5><br><br>
+            <p>After each attempt, click unravel mystery to see the tiles with same number</p><br>
+            <p>Click predict again after every attempt, to predict another set of tiles<br><br>
+            <p>The developer will appreciate your feedback, click the feedback button to send your feedback to the developer</p>
+            <br>
+            <p class="projectinfo">self-dev prj #7</p>
+            
+            <!-- automatically opening user mail app to send mail to me with my email and mail subject defined -->
+            <a href="mailto:ojeisreal@gmail.com?subject=predictDfuture%20Game%20User%20Feedback"> 
+                <div class="sendfeedback">
+                    <h3>Send Feedback</h3>
+                </div>
+            </a>
+        </div>
+        <!-- <p class="downarrow">&#9660</p> -->
+    </div>
+
+    <div class="hidegameinfocard" id="hidegameinfocard" onclick="hidegameinfocard()"></div>
+
+    <aside>
+        <div class="progress">
+            <div class="playernamesect">
+                <h2 id="playernametext"></h2>
+            </div>
+
+            <div class="successattempts">
+                <div class="attempts">
+                    <h3>Attempts</h3>
+                    <h3 id="predictionattempts"></h3>
+                </div>
+        
+                <div class="Successfuls">
+                    <h3 class="Successfulsvalue">Successful<br>Predictions</h3>
+                    <h3 id="predictionsuccess"></h3>
+                </div>
+            </div>
+    
+            <div class="clearprogress" onclick="initiateclearprogress()">
+                <h3>Clear game data</h3>
+            </div>
+        </div>
+        
+
+        <div class="gameinfo" onclick="gameinfo()">
+            <h3>Game info</h3>
+        </div>
+    </aside>
+
+    <main>
+        <div class="completedoverlay" id="completedoverlay">
+            <div class="completedcontainer">
+                <div class="predictagain" onclick="predictagain()">
+                    <h3>Predict more futures</h3>
+                </div>
+    
+                <div class="showtilevalues" onclick="showtilevalues()">
+                    <h3>Unravel mystery behind the tiles</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="headersect">
+            <h2 id="headertext">Predict and Select three Tiles with same numbers</h2>
+            <div class="predictagain" id="predictagain" onclick="predictagain()">
+                <h3>Predict more futures</h3>
+            </div>
+        </div>
+
+        <div class="submain">
+            <div id="tilesholder">
+                <div class="row1">
+                    <div class="tile" onclick="tileselect(0)">
+                        <h1 class="tilevalue">?</h1>
+                    </div>
+                    <div class="tile"  onclick="tileselect(1)">
+                        <h1 class="tilevalue">?</h1>
+                    </div>
+                    <div class="tile" onclick="tileselect(2)">
+                        <h1 class="tilevalue">?</h1>
+                    </div>
+                </div>
+        
+                <div class="row2">
+                    <div class="tile" onclick="tileselect(3)">
+                        <h1 class="tilevalue">?</h1>
+                    </div>
+                    <div class="tile"  onclick="tileselect(4)">
+                        <h1 class="tilevalue">?</h1>
+                    </div>
+                    <div class="tile" onclick="tileselect(5)">
+                        <h1 class="tilevalue">?</h1>
+                    </div>
+                </div>
+        
+                <div class="row3">
+                    <div class="tile" onclick="tileselect(6)">
+                        <h1 class="tilevalue">?</h1>
+                    </div>
+                    <div class="tile" onclick="tileselect(7)">
+                        <h1 class="tilevalue">?</h1>
+                    </div>
+                    <div class="tile" onclick="tileselect(8)">
+                        <h1 class="tilevalue">?</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+</body>
+
+</html>

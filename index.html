@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tabletscreen.css">
+    <link rel="stylesheet" href="mobilescreen.css">
+    <title>predictDfuture</title>
+</head>
+
+<body>
+    <div id="submitnameoverlay">
+        <div class="completedcontainer" id="submitnamecontainer" >
+            <div class="entername">
+                <h3>Enter your nickname</h3>
+                <input type="text" id="playername" placeholder="Enter your nickname" required onclick="inputingname()">
+            </div>
+
+            <div class="submitname" onclick="startgame()">
+                <h3>Submit</h3>
+            </div>
+        </div>
+    </div>
+    
+    <div class="applogo" id="applogo">
+        <h3>
+            <span id="logotxt1" class="logotxt">p</span><span id="logotxt2" class="logotxt">r</span><span id="logotxt3" class="logotxt">e</span><span id="logotxt4" class="logotxt">d</span><span id="logotxt5" class="logotxt">i</span><span id="logotxt6" class="logotxt">ct</span><span id="logotxt7" class="logotxt">D</span><span id="logotxt8" class="logotxt">f</span><span id="logotxt9" class="logotxt">u</span><span id="logotxt10" class="logotxt">t</span><span id="logotxt11" class="logotxt">u</span><span id="logotxt12" class="logotxt">r</span><span id="logotxt13" class="logotxt">e</span>
+        </h3>
+    </div>
+
+    <div class="startcard" id="startcard">
+        <div class="startcardtext">
+            <h4>Prediction Game Challenge</h4><br><br>
+            <h5><span class="logotext">The future is a mystery</span></h5><br><br>
+            <p><span class="logotext">The future:</span> 3 or more out of these tiles have the same number</p><br>
+            <p><span class="logotext">The mystery:</span> which 3 tiles holds the same number</p><br><br>
+            <h5 class="note"><span class="logotext">Predict D future</span> correctly by selecting 3 tiles with the same number</h5>
+            <p class="note">P.S: maximum number of tile selection is 4 tiles</p>
+        </div>
+
+        <div class="startgamebtn">
+            <div class="start" id="start" onclick="submitname()">
+                <h3>start</h3>
+            </div>
+
+            <div class="start" id="continue" onclick="continuegame()">
+                <h3>continue</h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        index = 1;
+        function logoanimation(){
+            if (index < 7){
+                document.getElementById('logotxt' + index).style.opacity = 1;
+                document.getElementById('logotxt' + (14-index)).style.opacity = 1;
+                index++;
+            } else{
+                document.getElementById('logotxt7').style.opacity = 1;
+                document.getElementById('logotxt7').style.fontSize = '50px';
+            }
+        }
+        setInterval(logoanimation,200);
+
+        function showstartcard(){
+            document.getElementById('applogo').style.display = 'none';
+            document.getElementById('startcard').style.display = 'block';
+            if (localStorage.playername){
+                document.getElementById('start').style.display = 'none';
+                document.getElementById('continue').style.display = 'block';
+            }
+        }
+        setTimeout(showstartcard,3000);
+
+        function submitname(){
+            document.getElementById('submitnameoverlay').style.display = 'block';
+        }
+
+        function startgame(){
+            if (document.getElementById('playername').value){
+                localStorage.setItem('playername', document.getElementById('playername').value)
+                localStorage.setItem('attempts', 0);
+                localStorage.setItem('success', 0);
+                location.replace('game.html');
+            } else {
+                document.getElementById('playername').style.backgroundColor = 'red';
+            }
+        }
+
+        function inputingname(){
+            document.getElementById('playername').style.backgroundColor = '#121a2e';
+        }
+
+        function continuegame(){
+            location.replace('game.html');
+        }
+
+    </script>
+</body>
+
+</html>

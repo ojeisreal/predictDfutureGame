@@ -1,0 +1,473 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    background-color: #0e1525;
+}
+
+aside{
+    background-color: #121a2e;
+    padding: 20px 20px;
+    width: 30%;
+    position: absolute;
+    height: 100%;
+}
+
+main{
+    width: 70%;
+    position: absolute;
+    right: 0;
+}
+
+.headersect h2{
+    color: white;
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    padding: 10px 10px;
+    text-shadow: 2px 2px 80px #0048ff, -2px -2px 80px #0048ff, -2px 2px 80px #0048ff, 2px -2px 80px #0048ff;
+}
+
+.headersect{
+    width: fit-content;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.progress{
+    background-color: #0e1525;
+    padding: 20px 10px;
+    border-radius: 30px;
+}
+
+h1{
+    color: white;
+    font-size: 100px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 2px 2px 80px #0048ff, -2px -2px 80px #0048ff, -2px 2px 80px #0048ff, 2px -2px 80px #0048ff;
+    text-align: center;
+    line-height: 150px;
+}
+
+h1:hover{
+    text-shadow: 2px 2px 80px #95b3ff, -2px -2px 80px #95b3ff, -2px 2px 80px #95b3ff, 2px -2px 80px #95b3ff;
+}
+
+h3{
+    color: white;
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+.clearprogress h3, .gameinfo h3 {
+    font-size: 16px;
+    width: fit-content;
+    margin: auto;
+    padding: 10px 15px;
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.clearprogress h3{
+    text-shadow: 2px 2px 80px #ff5757, -2px -2px 80px #ff5757, -2px 2px 80px #ff5757, 2px -2px 80px #ff5757;
+}
+
+.clearprogress h3:hover{
+    text-shadow: 2px 2px 80px #ffbebe, -2px -2px 80px #ffbebe, -2px 2px 80px #ffbebe, 2px -2px 80px #ffbebe;
+}
+
+.gameinfo h3{
+    text-shadow: 2px 2px 40px yellowgreen, -2px -2px 40px yellowgreen, -2px 2px 40px yellowgreen, 2px -2px 40px yellowgreen;
+}
+
+.gameinfo h3:hover{
+    text-shadow: 2px 2px 40px rgb(213, 238, 162), -2px -2px 40px rgb(213, 238, 162), -2px 2px 40px rgb(213, 238, 162), 2px -2px 40px rgb(213, 238, 162);
+}
+
+.gameinfo{
+    position: absolute;
+    bottom: 20px;
+}
+
+#predictionattempts , #predictionsuccess{
+    font-size: 40px;
+    width: fit-content;
+    padding: 10px 20px;
+    text-shadow: 2px 2px 80px #0048ff, -2px -2px 80px #0048ff, -2px 2px 80px #0048ff, 2px -2px 80px #0048ff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.attempts{
+    gap: 54px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: fit-content;
+}
+
+.Successfulsvalue{
+    text-align: left;
+}
+
+.Successfuls{
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    width: fit-content;
+}
+
+.predictagain{
+    font-size: 16px;
+    width: fit-content;
+    margin: auto;
+    padding: 10px 15px;
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #417e1d;
+}
+
+.predictagain:hover{
+    background-color: #66be32;
+}
+
+.showtilevalues{
+    font-size: 16px;
+    width: fit-content;
+    margin: auto;
+    padding: 10px 15px;
+    border-radius: 30px;
+    margin-top: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #121a2e;
+}
+
+.showtilevalues:hover{
+    background-color: #2c4072;
+}
+
+.completedoverlay{
+    background-color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    display: none;
+}
+
+.completedcontainer{
+    position: relative;
+    width: fit-content;
+    /* how to centre a div */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#tilesholder{
+    width: fit-content;
+    margin: auto;
+    position: relative;
+    top: 10px;
+}
+
+.row1, .row2, .row3 {
+    display: flex;
+}
+
+.tile{
+    width: 150px;
+    height: 150px;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.applogo{
+    width: fit-content;
+    margin: auto;
+    border-radius: 40px;
+    overflow: hidden;
+    transform: translateY(40vh);
+    background-color: #012ea186;
+    /* display: none; */
+}
+
+.applogo h3{
+    font-size: 50px;
+    padding: 0 20px;
+    padding-bottom: 10px;
+    /* text-shadow: 2px 2px 80px #0048ff, -2px -2px 80px #0048ff, -2px 2px 80px #0048ff, 2px -2px 80px #0048ff; */
+}
+
+.startcard{
+    color: white;
+    padding: 40px;
+    background-color: #121a2e;
+    border-radius: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 85%;
+    display: none;
+    transition: 1000ms ease;
+}
+
+h4{
+    font-size: 24px;
+}
+
+h5{
+    font-size: 20px;
+}
+
+.note{
+    text-align: center;
+}
+
+p{
+    font-size: 20px;
+}
+
+.logotext{
+    color: #b7c3e1;
+}
+
+.startgamebtn{
+    display: flex;
+    width: fit-content;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.start{
+    width: fit-content;
+    padding: 10px 30px;
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #417e1d;
+}
+
+.start:hover{
+    background-color: #66be32;
+}
+
+.logotxt{
+    opacity: 0;
+    transition: 1000ms ease;
+}
+
+#logotxt7{
+    font-size: 0px;
+    color: #b7c3e1;
+}
+
+#submitnamecontainer{
+    background-color: #0e1525;
+    padding: 20px 40px;
+    border-radius: 20px;
+}
+
+.submitname{
+    font-size: 16px;
+    width: fit-content;
+    margin: auto;
+    padding: 10px 15px;
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #417e1d;
+}
+
+.submitname:hover{
+    background-color: #66be32;
+}
+
+input{
+    height: 50px;
+    width: 100%;
+    background-color: #121a2e;
+    margin: 20px 0;
+    padding-left: 10px;
+    border-radius: 5px;
+    /* border: 1px solid white; */
+    color: white;
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+}
+
+::placeholder{
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#continue{
+    display: none;
+}
+
+#submitnameoverlay{
+    background-color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+    transition: 1000ms ease;
+}
+
+.playernamesect h2{
+    color: white;
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    padding: 10px 20px;
+    text-shadow: 2px 2px 80px #0048ff, -2px -2px 80px #0048ff, -2px 2px 80px #0048ff, 2px -2px 80px #0048ff;
+}
+
+.playernamesect{
+    width: fit-content;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#predictagain{
+    display: none;
+}
+
+#clearprogressoverlay{
+    background-color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: none;
+    transition: 1000ms ease;
+}
+
+.clearprogresswarning{
+    margin: 40px 0;
+    color: white;
+}
+
+.clearprogressoptions{
+    display: flex;
+    gap: 50px;
+    width: fit-content;
+    margin: auto;
+}
+
+.options{
+    font-size: 16px;
+    width: fit-content;
+    padding: 10px 30px;
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #417e1d;
+}
+
+.options:hover{
+    background-color: #66be32;
+}
+
+#wipegamedata{
+    background-color: red;
+}
+
+#wipegamedata:hover{
+    background-color: #ff5757;
+}
+
+/* properties for enlarged card */
+/* .change{
+    color: white;
+    padding: 20px 40px;
+    background-color: #19243e;
+    border-radius: 40px;
+    position: absolute;
+    width: 85%;
+    transition: 1000ms ease;
+    z-index: 2;
+    transform-origin: left bottom;
+    left: 95px;
+    top: 85px;
+} */
+
+.gameinfocard{
+    color: white;
+    padding: 20px 40px;
+    background-color: #19243e;
+    border-radius: 40px;
+    position: absolute;
+    width: 84%;
+    transition: 1000ms ease;
+    z-index: 3;
+    transform-origin: center;
+    transform: scale(0,0);
+    margin: 8%;
+}
+
+.sendfeedback{
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px 30px;
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #417e1d;
+}
+
+.sendfeedback:hover{
+    background-color: #66be32;
+}
+
+.downarrow{
+    position: absolute;
+    font-size: 42px;
+    color: #19243e;
+    transform: scale(1.5,1);
+}
+
+.hidegameinfocard{
+    background-color: aqua;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+.projectinfo{
+    text-align: end;
+}

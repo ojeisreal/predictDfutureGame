@@ -1,0 +1,136 @@
+@media (max-width: 500px){
+
+    .headersect h2{
+        font-size: 16px;
+        text-shadow: 2px 2px 60px #0048ff, -2px -2px 60px #0048ff, -2px 2px 60px #0048ff, 2px -2px 60px #0048ff;
+    }
+
+    .headersect{
+        margin-top: 10px;
+    }
+    
+    h3{
+        font-size: 16px;
+    }
+
+    .clearprogress h3, .gameinfo h3{
+        font-size: 14px;
+    }
+
+    #predictionattempts , #predictionsuccess{
+        font-size: 16px;
+    }
+
+    .predictagain{
+        font-size: 14px;
+    }
+
+    .showtilevalues{
+        font-size: 14px;
+    }
+
+    .applogo h3{
+        font-size: 40px;
+    }
+
+    h4{
+        font-size: 20px;
+    }
+    
+    h5{
+        font-size: 16px;
+    }
+
+    p{
+        font-size: 16px;
+    }
+
+    .submitname{
+        font-size: 16px;
+    }
+
+    ::placeholder{
+        font-size: 16px;
+    }
+
+    input{
+        font-size: 24px;
+    }
+
+    .playernamesect h2{
+        font-size: 24px;
+    }
+
+    .options{
+        font-size: 16px;
+    }
+
+    h1{
+        font-size: 60px;
+        text-shadow: 4px 2px 60px #0048ff, -2px -2px 60px #0048ff, -2px 2px 60px #0048ff, 2px -2px 60px #0048ff;
+        line-height: 100px;
+    }
+
+    .tile{
+        width: 100px;
+        height: 100px;
+        border-radius: 30px;
+        margin: 5px;
+    }
+
+    aside{
+        padding: 5px 10px;
+    }
+
+    .attempts, .Successfuls{
+        gap: 10px;
+    }
+
+    .attempts{
+        margin-right: 15px;
+    }
+
+    .progress{
+        padding: 10px 10px;
+    }
+
+    .successattempts{
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+
+    #predictionattempts , #predictionsuccess{
+        text-shadow: 10px 10px 20px #0048ff, -10px -10px 20px #0048ff, -10px 10px 20px #0048ff, 10px -10px 20px #0048ff;
+        border-radius: 10px;
+    }
+
+    .playernamesect h2{
+        font-size: 16px;
+        padding: 10px 20px;
+        text-shadow: 2px 2px 60px #0048ff, -2px -2px 60px #0048ff, -2px 2px 60px #0048ff, 2px -2px 60px #0048ff;
+    }
+    
+    .playernamesect{
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    #tilesholder{
+        margin-top: 0;
+    }
+
+    .gameinfo{
+        bottom: -220%;
+    }
+
+    .gameinfocard{
+        margin: 8%;
+    }
+
+    .startcard{
+        width: 90%;
+        padding: 10px;
+        border-radius: 20px;
+    }
+}
